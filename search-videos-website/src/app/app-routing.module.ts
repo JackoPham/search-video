@@ -7,12 +7,13 @@ import { AuthPermissionService } from './services/auth-permission.service';
 import { BlankLayoutComponent } from './components/layout/blank-layout/blank-layout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/error/not-found.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-    // canActivate: [AuthPermissionService],
+    canActivate: [AuthPermissionService],
     children: [
       {
         path: '',
@@ -28,6 +29,11 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent,
+        data: { title: 'Login' },
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
         data: { title: 'Login' },
       },
     ],

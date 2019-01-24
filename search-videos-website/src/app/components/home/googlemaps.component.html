@@ -1,0 +1,15 @@
+<modal-header title="Your location:  Latidute: {{this.lat}} - Longidute: {{this.lng}}" [activeModal]="modal">
+</modal-header>
+<modal-body>
+  <agm-map [latitude]="lat"
+    (mapClick)="placeMarker($event)"
+    style="height: 550px;"
+    [fullscreenControl]="'true'"
+    [longitude]="lng">
+    <agm-marker [latitude]="lat"
+      [longitude]="lng"></agm-marker>
+  </agm-map>
+</modal-body>
+<modal-footer>
+  <button nz-button nzType="primary" (click)="accept()">Accept</button>
+</modal-footer>

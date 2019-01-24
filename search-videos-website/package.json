@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.5",
     "@angular/animations": "~7.0.0",
     "@angular/common": "~7.0.0",
     "@angular/compiler": "~7.0.0",
@@ -22,9 +23,9 @@
     "@angular/router": "~7.0.0",
     "@ant-design/icons-angular": "^2.0.1",
     "@ng-bootstrap/ng-bootstrap": "^4.0.1",
-    "@ngx-translate/core": "^11.0.0",
     "@ngx-progressbar/core": "^5.3.1",
     "@ngx-progressbar/http": "^5.3.1",
+    "@ngx-translate/core": "^11.0.0",
     "animate.css": "^3.7.0",
     "bootbox": "^4.4.0",
     "bootstrap": "^4.1.3",

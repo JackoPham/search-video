@@ -2,7 +2,7 @@ import * as CryptoJS from 'crypto-js';
 
 export default class SecurityHelper {
   static secrectKey = 'akes!@#616b6573214023@#$#%24023242325324024402340@#$#%2232473646653@#$#%244465';
-  static authenKey = 'aluha.personal.tool';
+  static authenKey = 'aluha.video.tool';
   static encrypt(data: string) {
     if (!data) {
       return '';

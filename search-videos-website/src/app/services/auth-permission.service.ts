@@ -1,35 +1,20 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  CanActivateChild,
-  CanLoad,
-  Router,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  Route,
-} from '@angular/router';
+import { CanActivate, CanActivateChild, CanLoad, Router, ActivatedRouteSnapshot, RouterStateSnapshot, Route } from '@angular/router';
 import SecurityHelper from 'src/helpers/securityHelper';
 import { Constants } from 'src/config/constants';
 import DateHelper from 'src/helpers/dateHelper';
 
 @Injectable()
-export class AuthPermissionService
-  implements CanActivate, CanActivateChild, CanLoad {
+export class AuthPermissionService implements CanActivate, CanActivateChild, CanLoad {
   constructor(private router: Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const url: string = state.url;
 
     return this.checkLogin(url);
   }
 
-  canActivateChild(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): boolean {
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     return this.canActivate(route, state);
   }
 
@@ -42,14 +27,6 @@ export class AuthPermissionService
   checkLogin(url?: string): boolean {
     const authToken = SecurityHelper.getStoreAuthen();
     if (authToken && authToken.token) {
-      const remainTime = DateHelper.getTimeBetweenDate(
-        authToken.user.expiredDate
-      );
-      // eslint-disable-next-line no-restricted-globals
-      if (isNaN(remainTime) || remainTime >= 0) {
-        SecurityHelper.destroyAuthen();
-        this.router.navigate(['/login']);
-      }
       return true;
     } else {
       SecurityHelper.destroyAuthen();

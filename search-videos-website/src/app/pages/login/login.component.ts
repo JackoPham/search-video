@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       data => {
         if (data) {
           SecurityHelper.createStoreAuthen(data);
-          SecurityHelper.createStore('user.name', data.user.username);
+          SecurityHelper.createStore('user.name', data.user.fullname);
           this.router.navigate([Constants.returnUrl]);
         } else {
           this.message = 'Username/Password incorrect';

@@ -4035,7 +4035,7 @@ Input Icon
   padding-right :         calc(2.75rem + 2px);
 }
 .position-relative .form-control.form-control-lg ~ .form-control-position {
-  top : 10px;
+  top : 4px;
 }
 .position-relative .form-control.form-control-sm ~ .form-control-position {
   top : -3px;

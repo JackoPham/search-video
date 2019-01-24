@@ -27,10 +27,7 @@ export class HttpClientService {
     let params = new HttpParams();
     if (authToken && authToken.token && isSetToken) {
       headers = headers.append('Authorization', authToken.token || '');
-      headers = headers.append(
-        'userId',
-        authToken.user ? authToken.user.id : 0
-      );
+      headers = headers.append('userId', authToken.user ? authToken.user.id : 0);
     }
     if (param) {
       const listKeys = Object.keys(param).map(key => {

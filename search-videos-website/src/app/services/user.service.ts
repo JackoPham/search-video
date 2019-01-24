@@ -13,4 +13,9 @@ export class UserService {
     const url = this.hostUrl + 'login';
     return this.httpClient.postSync(url, data);
   }
+
+  create(data) {
+    const url = this.hostUrl + 'create';
+    return this.httpClient.postSync(url, data);
+  }
 }

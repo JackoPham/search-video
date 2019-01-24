@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { YoutubeService } from 'src/app/services/youtube.service';
 import SecurityHelper from 'src/helpers/securityHelper';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { GooglemapsComponent } from 'src/app/components/home/googlemaps.component';
 declare var $: any;
 @Component({
   selector: 'app-home',
@@ -15,13 +17,17 @@ export class HomeComponent implements OnInit {
   pageToken: 'CDIQAA';
   nextPageToken: '';
   prevPageToken: '';
-  constructor(private fb: FormBuilder, private youtubeService: YoutubeService) {}
+  lat: number;
+  lng: number;
+  constructor(private fb: FormBuilder, private youtubeService: YoutubeService, private modalService: NgbModal) {}
 
   ngOnInit() {
     const currentCoordinate = SecurityHelper.getStore('geolocation.aluha.app') || {};
+    this.lat = currentCoordinate.latitude || '10.82642';
+    this.lng = currentCoordinate.longitude || '106.72268';
     this.validateForm = this.fb.group({
-      latitude: [currentCoordinate.latitude || '10.82642', [Validators.required]],
-      longitude: [currentCoordinate.longitude || '106.72268', [Validators.required]],
+      latitude: [this.lat, [Validators.required]],
+      longitude: [this.lng, [Validators.required]],
       locationRadius: ['5km', [Validators.required]],
     });
   }
@@ -60,5 +66,21 @@ export class HomeComponent implements OnInit {
 
   changePage(flag) {
     this.search(flag);
+  }
+
+  openMaps() {
+    const modelRef = this.modalService.open(GooglemapsComponent, {
+      backdrop: 'static',
+      windowClass: 'aluha-modal modal-80 animated bounceIn',
+    });
+    modelRef.componentInstance.lat = this.lat;
+    modelRef.componentInstance.lng = this.lng;
+    modelRef.result.then(res => {
+      if (res) {
+        this.lat = res.lat;
+        this.lng = res.lng;
+        this.validateForm.setValue({ latitude: this.lat, longitude: this.lng, locationRadius: '5km' });
+      }
+    });
   }
 }

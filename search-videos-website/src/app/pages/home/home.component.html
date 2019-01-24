@@ -42,6 +42,12 @@
               nzType="primary"
               [disabled]="!validateForm.valid"><i nz-icon
                 type="search"></i>Search</button>
+            <a (click)="openMaps()"
+              class="ml5"
+              nz-button
+              nzType="info">
+              <i class="fas fa-map text-green mr5"></i>Maps
+            </a>
           </nz-form-control>
         </nz-form-item>
       </form>
@@ -59,6 +65,9 @@
             <iframe class="img-thumbnail"
               [src]="item.id.videoId | safePipe"></iframe>
           </div>
+        </div>
+        <div class="col-12 text-center">
+            <span *ngIf="!totalPage">No data found</span>
         </div>
       </div>
       <nz-button-group class="pull-right m10"

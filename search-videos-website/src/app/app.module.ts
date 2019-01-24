@@ -22,6 +22,9 @@ import { BlankLayoutComponent } from './components/layout/blank-layout/blank-lay
 import { NotFoundComponent } from './pages/error/not-found.component';
 import { LoginModule } from './pages/login/login.module';
 import { ShareModule } from './components/share/share.module';
+import { GooglemapsComponent } from './components/home/googlemaps.component';
+import { HomeModule } from './pages/home/home.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -36,9 +39,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HeaderComponent,
     ConfigThemeComponent,
     NotFoundComponent,
-    HomeComponent,
-    SafePipe,
-    SplitTextPipe,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppRoutingModule,
     BrowserAnimationsModule,
     ClickOutsideModule,
-    ShareModule,
+    NgbModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -61,6 +61,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     NgProgressHttpModule,
     LoginModule,
+    HomeModule,
   ],
   providers: [TitleService],
   bootstrap: [AppComponent],

@@ -11,3 +11,6 @@ ul {
 .navbar-light .brand-text{
     color: rgba(0,0,0,.7) !important;
 }
+.anticon{
+    vertical-align: 0;
+}
