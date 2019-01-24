@@ -1,0 +1,32 @@
+.theme-primary {
+    /* navbar */
+    $navbar-color: black;
+    $navbar-text-color: black;
+    $navbar-icon-color: black;
+    $navbar-active-color: black;
+    /* end navbar */
+    /* header */
+    $header-color: #fff;
+    $header-text-color: #fff;
+    $header-icon-color: #fff;
+    /* end header */
+    /* button */
+    $btn-primary: #fff;
+    $btn-text-primary: #fff;
+
+    $btn-success: #fff;
+    $btn-text-success: #fff;
+
+    $btn-warning: #fff;
+    $btn-text-warning: #fff;
+
+    $btn-info: #fff;
+    $btn-text-info: #fff;
+
+    $btn-danger: #fff;
+    $btn-text-danger: #fff;
+    /* end button */
+    $bg-color: #fff;
+    $font-family: Helvetica, Arial, Sans-Serif;
+    @import './style.scss';
+}

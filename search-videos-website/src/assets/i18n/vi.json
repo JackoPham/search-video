@@ -1,0 +1,23 @@
+{
+  "header": {
+    "title": "Video Nearby",
+    "title.tooltip": "Personal tool management"
+  },
+  "theme": {
+    "setting.title": "Thay đổi chủ đề",
+    "setting.btnlight": "Chủ đề sáng",
+    "setting.btndark": "Chủ đề tối",
+    "setting.headertext": "Màu header",
+    "setting.menutext": "Màu menu"
+  },
+  "menu": {
+    "dashboard": "Trang chủ",
+    "pm2": "PM2-Quản lý",
+    "redis":"Redis",
+    "list":"Danh sách",
+    "setting":"Cấu hình"
+  },
+  "err": {
+    "err404": "Page not found"
+  }
+}

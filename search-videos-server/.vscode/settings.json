@@ -1,0 +1,27 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "search.exclude": {
+      "**/dest": true,
+      ".history": true
+    },
+    "editor.tabSize": 4,
+    "tslint.enable": true, //Enable eslint
+    "tslint.validateWithDefaultConfig": true,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "es5",
+    "prettier.printWidth": 200,
+    "html.format.wrapAttributes": "force",
+    "html.format.wrapLineLength": 140,
+    "[typescript]": {
+      "editor.formatOnSave": true
+    },
+    "[html]": {
+      "editor.formatOnSave": false,
+      "editor.wordWrapColumn":140
+    },
+    // Run the linter on save (onSave) or on type (onType)
+    "tslint.run": "onSave",
+    "tslint.alwaysShowStatus": true,
+    "tslint.alwaysShowRuleFailuresAsWarnings": true,
+    "tslint.autoFixOnSave": true //Autofix any fixable errors when linting
+  }

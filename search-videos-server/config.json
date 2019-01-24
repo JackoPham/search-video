@@ -1,0 +1,104 @@
+{
+  "DEVELOPMENT": {
+    "SERVER": {
+      "PORT": "17093",
+      "DOMAIN": "localhost"
+    },
+    "RABBITMQ": {
+      "HOST": "",
+      "PORT": "",
+      "USERNAME": "",
+      "PASSWORD": ""
+    },
+    "REDIS": {
+      "HOST": "192.168.1.207",
+      "PORT": "6379",
+      "PASSWORD": "vnng@123"
+    },
+    "DATABASES": {
+      "DATABASE_DYAMICS": {
+        "DEVICE": {
+          "DB_NAME": "swap-ez-admin-device"
+        },
+        "AUTHEN": {
+          "DB_NAME": "swap-ez-authen"
+        }
+      },
+      "POSTGRES": {
+        "HOST": "192.168.1.207",
+        "PORT": "5432",
+        "DB_NAME": "swap-ez-authen",
+        "USERNAME": "postgres",
+        "PASSWORD": "vnng@2018"
+      },
+      "MONGO": {
+        "HOST": "ds057862.mlab.com",
+        "PORT": 57862,
+        "DB_NAME": "demo-database",
+        "USERNAME": "kenry.phyam",
+        "PASSWORD": "ilove123"
+      }
+    },
+    "MAIL": {
+      "HOST": "",
+      "PORT": "",
+      "PASSWORD": ""
+    },
+    "SERVICE": {
+      "POSTGRES_DB": false,
+      "REDIS": false,
+      "RABBITMQ": false,
+      "EVENTSTORE": false
+    },
+    "PATHS": {
+      "LOGPATH": "logs/"
+    }
+  },
+  "PRODUCTION": {
+    "SERVER": {
+      "PORT": "5003",
+      "DOMAIN": "localhost"
+    },
+    "RABBITMQ": {
+      "HOST": "",
+      "PORT": "",
+      "USERNAME": "",
+      "PASSWORD": ""
+    },
+    "REDIS": {
+      "HOST": "192.168.1.207",
+      "PORT": "6379",
+      "PASSWORD": "vnng@123"
+    },
+    "DATABASES": {
+      "POSTGRES": {
+        "HOST": "192.168.1.207",
+        "PORT": "5432",
+        "DB_NAME": "swap-ez-authen",
+        "USERNAME": "postgres",
+        "PASSWORD": "vnng@123"
+      },
+      "MONGO": {
+        "HOST": "ds057862.mlab.com",
+        "PORT": 57862,
+        "DB_NAME": "demo-database",
+        "USERNAME": "kenry.phyam",
+        "PASSWORD": "ilove123"
+      }
+    },
+    "MAIL": {
+      "HOST": "",
+      "PORT": "",
+      "PASSWORD": ""
+    },
+    "SERVICE": {
+      "POSTGRES_DB": true,
+      "REDIS": false,
+      "RABBITMQ": false,
+      "EVENTSTORE": false
+    },
+    "PATHS": {
+      "LOGPATH": "logs/"
+    }
+  }
+}

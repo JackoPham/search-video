@@ -1,0 +1,25 @@
+{
+  "header": {
+    "title": "Video Nearby",
+    "title.tooltip": "Youtube nearby"
+  },
+  "theme": {
+    "setting.title": "Customize & Preview in Real Time",
+    "setting.btnlight": "Light Header",
+    "setting.btndark": "Dark Header",
+    "setting.headertext": "Header color",
+    "setting.menutext": "Menu color",
+    "setting.lightMenu":"Light Menu",
+    "setting.darkMenu":"Dark Menu"
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "pm2": "PM2-Service",
+    "redis": "Redis",
+    "list": "List",
+    "setting": "Setting"
+  },
+  "err": {
+    "err404": "Page not found"
+  }
+}
