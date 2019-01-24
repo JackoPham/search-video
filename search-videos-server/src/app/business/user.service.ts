@@ -4,6 +4,8 @@ import UserRepository from '@repository/user.repository';
 import IUserService from './interfaces/Iuser.service';
 import DataBaseConstant from '@system/enums/database.enum';
 import { SecurityHelper } from 'aluha-ezcode-helper';
+import LoginModel from '@model/LoginModel';
+import { Message } from '@model/common/Message';
 
 @Injectable()
 export class UserService implements IUserService {
@@ -11,19 +13,41 @@ export class UserService implements IUserService {
     @Inject(DataBaseConstant.USER_PROVIDER)
     private readonly userRepository: UserRepository,
   ) {}
-  async login(data: User): Promise<User> {
-    data.password = SecurityHelper.hashData(data.password);
-    return await this.userRepository.findOne({
-      where: {
-        username: { $eq: data.username },
-        password: { $eq: data.password },
-      },
-    });
+  async login(data: LoginModel): Promise<any> {
+    try {
+      data.password = SecurityHelper.hashData(data.password);
+      const user = await this.userRepository.findOne({
+        where: {
+          username: { $eq: data.username },
+          password: { $eq: data.password },
+        },
+      });
+
+      if (user) {
+        const us = {
+          fullname: user.fullname,
+          _id: user.id,
+          username: user.username,
+        };
+        const token = SecurityHelper.generateToken(us, '1d');
+        return {
+          user,
+          token,
+        };
+      }
+      return undefined;
+    } catch (error) {
+      throw error;
+    }
   }
-  async create(data: User): Promise<User> {
+  async create(data: User): Promise<Message> {
+    let msg = new Message(1, 'Register is so good');
     data.password = SecurityHelper.hashData(data.password);
     const result = await this.userRepository.save(data);
-    return result;
+    if (!result) {
+      msg = new Message(-1, 'Register not success');
+    }
+    return msg;
   }
   root(): string {
     try {

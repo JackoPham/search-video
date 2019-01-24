@@ -1,17 +1,18 @@
-import { Get, Controller, Headers, Body, Post } from '@nestjs/common';
-import { UserService } from '@business/user.service';
+import { Controller, Body, Post, UseGuards, Inject } from '@nestjs/common';
 import User from '@entity/user.entity';
+import LoginModel from '@model/LoginModel';
+import { AuthGuard } from '@system/guard/auth.guard';
+import { Authorized } from '@system/decorator/roles.decorator';
+import IUserService from '@business/interfaces/Iuser.service';
 
 @Controller('user')
 class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    @Inject('IUserService') private readonly userService: IUserService,
+  ) {}
 
-  @Get('test')
-  root(): string {
-    return this.userService.root();
-  }
   @Post('login')
-  async login(@Body() user: User) {
+  async login(@Body() user: LoginModel) {
     return await this.userService.login(user);
   }
   @Post('create')
