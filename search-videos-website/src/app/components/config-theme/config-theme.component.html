@@ -1,10 +1,12 @@
 
 <div class="customizer border-left-blue-grey border-left-lighten-4 d-none
-  d-xl-block" [ngClass]="{'open':isOpen === true}" (clickOutside)="onClickedOutside()">
+  d-xl-block" [ngClass]="{'open':isOpen === true}"
+  (clickOutside)="onClickedOutside()">
   <a class="customizer-close" href="#" (click)="isOpen= false">
     <i class="ft-x font-medium-3"></i>
   </a>
-  <a class="customizer-toggle {{currentTheme.color}}" href="#" (click)="isOpen= !isOpen">
+  <a class="customizer-toggle {{currentTheme.color}}" href="#" (click)="isOpen=
+    !isOpen">
     <i class="ft-settings font-medium-3 fas-spin fas fa-spin fa-fw white"></i>
   </a>
   <div class="customizer-content p-2">
@@ -16,26 +18,31 @@
         aria-label="Basic example">
         <button type="button" class="btn btn-outline-info" [ngClass]="{'active':
           currentTheme.theme === 'navbar-light'}"
-          (click)="changeTheme('navbar-light')" translate="theme.setting.btnlight"></button>
+          (click)="changeTheme('navbar-light')"
+          translate="theme.setting.btnlight"></button>
         <button type="button" class="btn btn-outline-info" [ngClass]="{'active':
           currentTheme.theme === 'navbar-dark'}"
-          (click)="changeTheme('navbar-dark')" translate="theme.setting.btndark"></button>
+          (click)="changeTheme('navbar-dark')"
+          translate="theme.setting.btndark"></button>
       </div>
     </div>
     <ul class="nav nav-tabs nav-underline nav-justified color-options">
       <li class="nav-item">
         <a class="nav-link nav-semi-light active" id="color-opt-1"
           data-toggle="tab" aria-controls="clrOpt1"
-          href="#clrOpt1" aria-expanded="false" translate="theme.setting.headertext"></a>
+          href="#clrOpt1" aria-expanded="false"
+          translate="theme.setting.headertext"></a>
       </li>
       <li class="nav-item">
         <a class="nav-link nav-semi-dark" id="color-opt-2" data-toggle="tab"
           aria-controls="clrOpt2"
-          href="#clrOpt2" aria-expanded="false" translate="theme.setting.menutext"></a>
+          href="#clrOpt2" aria-expanded="false"
+          translate="theme.setting.menutext"></a>
       </li>
     </ul>
     <div class="tab-content px-1 pt-1">
-      <div role="tabpanel" class="tab-pane active" id="clrOpt1" aria-expanded="true" aria-labelledby="color-opt-1">
+      <div role="tabpanel" class="tab-pane active" id="clrOpt1"
+        aria-expanded="true" aria-labelledby="color-opt-1">
         <div class="row">
           <div class="col-6 text-left">
             <ul class="mt10">
@@ -54,18 +61,23 @@
           </div>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane" id="clrOpt2" aria-expanded="true" aria-labelledby="color-opt-2">
+      <div role="tabpanel" class="tab-pane" id="clrOpt2" aria-expanded="true"
+        aria-labelledby="color-opt-2">
         <div class="row p20">
           <div class="col-6 text-left">
             <div class="form-group">
               <div class="btn-group customizer-sidebar-options" role="group"
                 aria-label="Basic example">
-                <button type="button" class="btn btn-outline-info" [ngClass]="{'active':
+                <button type="button" class="btn btn-outline-info"
+                  [ngClass]="{'active':
                   currentTheme.menuTheme === 'menu-light'}"
-                  (click)="changeMenuTheme('menu-light')" translate="theme.setting.lightMenu"></button>
-                <button type="button" class="btn btn-outline-info" [ngClass]="{'active':
+                  (click)="changeMenuTheme('menu-light')"
+                  translate="theme.setting.lightMenu"></button>
+                <button type="button" class="btn btn-outline-info"
+                  [ngClass]="{'active':
                   currentTheme.menuTheme === 'menu-dark'}"
-                  (click)="changeMenuTheme('menu-dark')" translate="theme.setting.darkMenu"></button>
+                  (click)="changeMenuTheme('menu-dark')"
+                  translate="theme.setting.darkMenu"></button>
               </div>
             </div>
           </div>
