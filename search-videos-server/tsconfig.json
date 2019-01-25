@@ -1,0 +1,74 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2017",
+    "lib": [
+      "es5",
+      "es6",
+      "dom",
+      "es2015.core",
+      "es2015.collection",
+      "es2015.generator",
+      "es2015.iterable",
+      "es2015.promise",
+      "es2015.proxy",
+      "es2015.reflect",
+      "es2015.symbol",
+      "es2015.symbol.wellknown",
+      "esnext.asynciterable"
+    ],
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "paths": {
+      "@model/*": [
+        "src/app/model/*"
+      ],
+      "@business/*": [
+        "src/app/business/*"
+      ],
+      "@entity/*": [
+        "src/app/entity/*"
+      ],
+      "@module/*": [
+        "src/app/module/*"
+      ],
+      "@provider/*": [
+        "src/app/provider/*"
+      ],
+      "@repository/*": [
+        "src/app/repository/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
+      "@system/*": [
+        "src/system/*"
+      ],
+      "@controllers/*": [
+        "src/controllers/*"
+      ],
+      "@graphql/*": [
+        "src/graphql/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

@@ -1,0 +1,88 @@
+<main-header>
+</main-header>
+<main-body>
+  <h4 class="card-title">Video nearby</h4>
+  <div class="card-content">
+    <div class="card-body">
+      <form nz-form
+        [nzLayout]="'inline'"
+        [formGroup]="validateForm"
+        (ngSubmit)="search(-1)">
+        <nz-form-item>
+          <nz-form-control>
+            <nz-input-group [nzPrefix]="prefixUser">
+              <input formControlName="latitude"
+                nz-input
+                placeholder="Latitude">
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <nz-input-group [nzPrefix]="prefixUser">
+              <input formControlName="longitude"
+                nz-input
+                placeholder="Longitude">
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <nz-input-group [nzPrefix]="prefixLock">
+              <input formControlName="locationRadius"
+                nz-input
+                type="text"
+                placeholder="Distance">
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button nz-button
+              nzType="primary"
+              [disabled]="!validateForm.valid"><i nz-icon
+                type="search"></i>Search</button>
+            <a (click)="openMaps()"
+              class="ml5"
+              nz-button
+              nzType="info">
+              <i class="fas fa-map text-green mr5"></i>Maps
+            </a>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+      <ng-template #prefixUser><i class="fas fa-map-marker"></i></ng-template>
+      <ng-template #prefixLock><i class="fas fa-map-pin"></i></ng-template>
+    </div>
+    <div class="card-body">
+      <h5 class="card-header">YouTube</h5>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-12"
+          *ngFor="let item of listVideos;let i=index">
+          <span nz-tooltip
+            [nzTitle]="item.snippet.title">{{item.snippet.title | splitText}}</span>
+          <div class="embed-responsive embed-responsive-item embed-responsive-16by9">
+            <iframe class="img-thumbnail"
+              [src]="item.id.videoId | safePipe"></iframe>
+          </div>
+        </div>
+        <div class="col-12 text-center">
+            <span *ngIf="!totalPage">No data found</span>
+        </div>
+      </div>
+      <nz-button-group class="pull-right m10"
+        *ngIf="totalPage>0">
+        <button [disabled]="!prevPageToken"
+          nz-button
+          (click)="changePage(0)"
+          nzType="primary"><i nz-icon
+            type="left"></i> Go back</button>
+        <button [disabled]="!nextPageToken"
+          nz-button
+          (click)="changePage(1)"
+          nzType="primary">Go next<i nz-icon
+            type="right"></i></button>
+      </nz-button-group>
+    </div>
+  </div>
+</main-body>
